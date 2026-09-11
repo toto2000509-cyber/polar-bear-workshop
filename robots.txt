@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://toto2000509-cyber.github.io/polar-bear-workshop/sitemap.xml
