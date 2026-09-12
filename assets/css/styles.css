@@ -43,6 +43,9 @@ button { cursor: pointer; }
 .menu-button svg { width: 25px; height: 25px; display: block; }
 
 .hero { min-height: 620px; display: grid; align-items: center; color: var(--white); background: linear-gradient(100deg, rgba(12, 15, 15, .88) 16%, rgba(12, 15, 15, .57) 58%, rgba(12, 15, 15, .30)), url('../images/domes/dome-rain-01.jpg') center 55% / cover; }
+.hero--ambient { position: relative; isolation: isolate; overflow: hidden; background: radial-gradient(circle at 70% 30%, rgba(225, 155, 60, .16), transparent 32%), linear-gradient(115deg, #080b0c, #182020 52%, #0a0d0e); }
+.hero-ambient { position: absolute; z-index: -1; inset: 0; width: 100%; height: 100%; pointer-events: none; opacity: .9; }
+.hero--ambient::after { content: ''; position: absolute; z-index: -1; inset: 0; pointer-events: none; background: radial-gradient(circle at 50% 42%, transparent 0 22%, rgba(4, 6, 7, .44) 100%); }
 .hero-content { max-width: 760px; display: grid; justify-items: center; align-self: start; padding: 105px 0; text-align: center; }
 .eyebrow { display: flex; align-items: center; gap: 10px; color: var(--gold-soft); font-weight: 700; font-size: 13px; }
 .eyebrow::before { content: ''; width: 28px; height: 2px; background: var(--gold); }
@@ -72,6 +75,13 @@ h1, h2, h3 { font-weight: 800; line-height: 1.45; letter-spacing: -.02em; }
 
 .products-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
 .product-card { display: flex; flex-direction: column; min-height: 100%; background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; box-shadow: 0 6px 20px rgba(25, 30, 30, .04); }
+.product-card { transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease; }
+@media (hover: hover) and (pointer: fine) { .product-card:hover { transform: translateY(-4px); border-color: rgba(225, 155, 60, .62); box-shadow: 0 18px 38px rgba(49, 34, 14, .16); } }
+
+.motion-reveal { opacity: 0; filter: blur(7px); transform: translateY(18px); transition: opacity .65s ease, transform .65s ease, filter .65s ease; }
+.motion-reveal.is-visible { opacity: 1; filter: none; transform: none; }
+.cursor-glow { position: fixed; z-index: 60; width: 180px; height: 180px; margin: -90px 0 0 -90px; border-radius: 50%; pointer-events: none; background: radial-gradient(circle, rgba(225, 155, 60, .11), transparent 68%); mix-blend-mode: screen; opacity: 0; transition: opacity .25s ease; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; } .hero-ambient, .cursor-glow { display: none; } .motion-reveal { opacity: 1; filter: none; transform: none; } }
 .product-media { background: #e8ece8; }
 .carousel { min-width: 0; }
 .carousel-viewport { width: 100%; }
