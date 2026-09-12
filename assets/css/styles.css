@@ -191,8 +191,8 @@ h1, h2, h3 { font-weight: 800; line-height: 1.45; letter-spacing: -.02em; }
   .main-nav.is-open { display: flex; position: absolute; top: 68px; inset-inline: 0; flex-direction: column; gap: 0; padding: 10px 20px; background: var(--coal); border-bottom: 1px solid var(--dark-line); }
   .main-nav a { padding: 13px 0; border-bottom: 1px solid var(--dark-line); }
   .header-quote { display: none; }
-  .hero { min-height: 560px; }
-  .hero-content { padding: 72px 0; }
+  .hero { min-height: 460px; }
+  .hero-content { padding: 64px 0 34px; }
   .section { padding: 65px 0; }
   .section-head { display: block; }
   .section-head p { margin-top: 12px; }
@@ -206,7 +206,8 @@ h1, h2, h3 { font-weight: 800; line-height: 1.45; letter-spacing: -.02em; }
   .container { width: min(100% - 30px, 1180px); }
   .brand-name { font-size: 14px; }
   .brand-fallback { width: 37px; height: 37px; font-size: 11px; }
-  .hero { min-height: 520px; background-position: 60% center; }
+  .hero { min-height: clamp(370px, 58svh, 420px); background-position: 60% center; align-items: start; }
+  .hero-content { padding: 56px 0 28px; }
   .hero h1 { max-width: 100%; font-size: 29px; letter-spacing: 0; }
   .section-head h2, .quote-header h2 { font-size: 28px; letter-spacing: 0; }
   .actions, .product-actions { display: grid; grid-template-columns: 1fr; }
