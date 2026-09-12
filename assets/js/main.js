@@ -1,4 +1,23 @@
 const WHATSAPP_NUMBER = '966531021644';
+const themeToggle = document.querySelector('[data-theme-toggle]');
+const themePreference = window.matchMedia('(prefers-color-scheme: dark)');
+const themeMeta = document.querySelector('meta[name="theme-color"]');
+const currentTheme = () => document.documentElement.dataset.theme || (themePreference.matches ? 'dark' : 'light');
+const updateThemeControl = () => {
+  const theme = currentTheme();
+  themeToggle?.setAttribute('aria-label', theme === 'dark' ? 'تفعيل الوضع المشرق' : 'تفعيل الوضع الداكن');
+  themeToggle?.setAttribute('title', theme === 'dark' ? 'تفعيل الوضع المشرق' : 'تفعيل الوضع الداكن');
+  themeToggle?.setAttribute('aria-pressed', String(theme === 'dark'));
+  themeMeta?.setAttribute('content', theme === 'dark' ? '#0f1312' : '#f6f4ef');
+};
+themeToggle?.addEventListener('click', () => {
+  const nextTheme = currentTheme() === 'dark' ? 'light' : 'dark';
+  document.documentElement.dataset.theme = nextTheme;
+  try { localStorage.setItem('polar-bear-theme', nextTheme); } catch (_) { /* Storage can be unavailable in private browsing. */ }
+  updateThemeControl();
+});
+themePreference.addEventListener?.('change', () => { if (!document.documentElement.dataset.theme) updateThemeControl(); });
+updateThemeControl();
 const menuButton = document.querySelector('[data-menu-button]');
 const menu = document.querySelector('[data-menu]');
 menuButton?.addEventListener('click', () => { const open = menu.classList.toggle('is-open'); menuButton.setAttribute('aria-expanded', String(open)); document.body.classList.toggle('has-menu-open', open); });
