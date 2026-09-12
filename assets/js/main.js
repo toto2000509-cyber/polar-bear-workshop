@@ -2,14 +2,12 @@ const WHATSAPP_NUMBER = '966531021644';
 
 const menuButton = document.querySelector('[data-menu-button]');
 const menu = document.querySelector('[data-menu]');
-
 if (menuButton && menu) {
   menuButton.addEventListener('click', () => {
     const isOpen = menu.classList.toggle('is-open');
     menuButton.setAttribute('aria-expanded', String(isOpen));
     document.body.classList.toggle('has-menu-open', isOpen);
   });
-
   menu.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => {
     menu.classList.remove('is-open');
     menuButton.setAttribute('aria-expanded', 'false');
@@ -18,27 +16,12 @@ if (menuButton && menu) {
 }
 
 function whatsappUrl(product = 'استفسار عام', fields = {}) {
-  if (Object.keys(fields).length === 0) {
-    const message = `السلام عليكم،\nأرغب بطلب عرض سعر.\n\nنوع المنتج: ${product}`;
-    return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
-  }
-
-  const lines = [
-    'السلام عليكم،',
-    'أرغب بطلب عرض سعر.',
-    '',
-    'اسم المؤسسة / الشركة أو المدير:', fields.business || '',
-    '',
-    'المدينة:', fields.city || '',
-    '',
-    'رقم الجوال:', fields.phone || '',
-    '',
-    'نوع المنتج:', product,
-    '',
-    'العدد:', fields.quantity || '',
-    '',
+  const lines = Object.keys(fields).length ? [
+    'السلام عليكم،', 'أرغب بطلب عرض سعر.', '',
+    'اسم المؤسسة / الشركة أو المدير:', fields.business || '', '', 'المدينة:', fields.city || '', '',
+    'رقم الجوال:', fields.phone || '', '', 'نوع المنتج:', product, '', 'العدد:', fields.quantity || '', '',
     'مواصفات إضافية:', fields.details || '',
-  ];
+  ] : ['السلام عليكم،', 'أرغب بطلب عرض سعر.', '', `نوع المنتج: ${product}`];
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(lines.join('\n'))}`;
 }
 
@@ -47,87 +30,122 @@ document.querySelectorAll('[data-quote-product]').forEach((link) => {
 });
 
 const quoteForm = document.querySelector('[data-quote-form]');
-if (quoteForm) {
-  quoteForm.addEventListener('submit', (event) => {
-    event.preventDefault();
-    if (!quoteForm.checkValidity()) {
-      quoteForm.reportValidity();
-      return;
-    }
+quoteForm?.addEventListener('submit', (event) => {
+  event.preventDefault();
+  if (!quoteForm.checkValidity()) return quoteForm.reportValidity();
+  const data = new FormData(quoteForm);
+  window.open(whatsappUrl(String(data.get('product') || 'استفسار عام'), Object.fromEntries(data)), '_blank', 'noopener');
+});
 
-    const data = new FormData(quoteForm);
-    window.open(whatsappUrl(String(data.get('product') || 'استفسار عام'), {
-      business: String(data.get('business') || ''),
-      city: String(data.get('city') || ''),
-      phone: String(data.get('phone') || ''),
-      quantity: String(data.get('quantity') || ''),
-      details: String(data.get('details') || ''),
-    }), '_blank', 'noopener');
+function addDragBehavior(viewport, moveBy, onDragging) {
+  let pointerId = null;
+  let startX = 0;
+  let deltaX = 0;
+  let dragging = false;
+  let blockClickUntil = 0;
+  viewport.addEventListener('pointerdown', (event) => {
+    if (event.pointerType === 'mouse' && event.button !== 0) return;
+    pointerId = event.pointerId; startX = event.clientX; deltaX = 0; dragging = false;
+    viewport.setPointerCapture?.(pointerId);
   });
+  viewport.addEventListener('pointermove', (event) => {
+    if (event.pointerId !== pointerId) return;
+    deltaX = event.clientX - startX;
+    if (Math.abs(deltaX) > 7) { dragging = true; onDragging(true, deltaX); event.preventDefault(); }
+  });
+  const finishDrag = (event) => {
+    if (event.pointerId !== pointerId) return;
+    if (dragging) { blockClickUntil = Date.now() + 350; moveBy(deltaX < 0 ? 1 : -1, Math.abs(deltaX) > 45); }
+    onDragging(false, 0); pointerId = null;
+  };
+  viewport.addEventListener('pointerup', finishDrag);
+  viewport.addEventListener('pointercancel', finishDrag);
+  return () => Date.now() < blockClickUntil;
 }
+
+function setupCarousel(root) {
+  const viewport = root.querySelector('[data-carousel-viewport]');
+  const track = root.querySelector('[data-carousel-track]');
+  const slides = Array.from(root.querySelectorAll('.carousel-slide'));
+  const dots = root.querySelector('[data-carousel-dots]');
+  const previous = root.querySelector('[data-carousel-prev]');
+  const next = root.querySelector('[data-carousel-next]');
+  if (!viewport || !track || !slides.length) return;
+  let index = 0;
+  root.classList.add('is-ready');
+  if (slides.length < 2) { root.classList.add('is-single'); return; }
+  root.classList.add('has-multiple');
+  const show = (nextIndex, immediate = false) => {
+    index = (nextIndex + slides.length) % slides.length;
+    track.style.transitionDuration = immediate ? '0ms' : '';
+    track.style.transform = `translate3d(${-index * 100}%, 0, 0)`;
+    dots?.querySelectorAll('.carousel-dot').forEach((dot, dotIndex) => dot.setAttribute('aria-current', String(dotIndex === index)));
+    window.setTimeout(() => { track.style.transitionDuration = ''; }, 0);
+  };
+  slides.forEach((_, dotIndex) => {
+    const dot = document.createElement('button');
+    dot.type = 'button'; dot.className = 'carousel-dot'; dot.setAttribute('aria-label', `الصورة ${dotIndex + 1}`);
+    dot.addEventListener('click', () => show(dotIndex)); dots?.append(dot);
+  });
+  show(0, true);
+  previous?.addEventListener('click', () => show(index - 1));
+  next?.addEventListener('click', () => show(index + 1));
+  const shouldBlockClick = addDragBehavior(viewport, (direction, movedEnough) => { if (movedEnough) show(index + direction); else show(index); }, (dragging, offset) => {
+    track.classList.toggle('is-dragging', dragging);
+    if (dragging) track.style.transform = `translate3d(calc(${-index * 100}% + ${offset}px), 0, 0)`;
+  });
+  root.querySelectorAll('a').forEach((link) => link.addEventListener('click', (event) => { if (shouldBlockClick()) event.preventDefault(); }));
+}
+
+document.querySelectorAll('[data-carousel]').forEach(setupCarousel);
 
 const dialog = document.querySelector('[data-lightbox]');
-const dialogImage = document.querySelector('[data-lightbox-image]');
-const dialogCaption = document.querySelector('[data-lightbox-caption]');
+const lightboxImage = dialog?.querySelector('[data-lightbox-image]');
+const lightboxCaption = dialog?.querySelector('[data-lightbox-caption]');
+const lightboxDots = dialog?.querySelector('[data-lightbox-dots]');
+const lightboxStage = dialog?.querySelector('[data-lightbox-stage]');
+let lightboxItems = [];
+let lightboxIndex = 0;
 let lightboxOpener = null;
 
-function closeLightbox() {
-  if (!dialog) return;
-  dialog.close();
-  dialogImage?.removeAttribute('src');
-  lightboxOpener?.focus();
+function renderLightbox(index) {
+  if (!lightboxImage || !lightboxItems.length) return;
+  lightboxIndex = (index + lightboxItems.length) % lightboxItems.length;
+  const item = lightboxItems[lightboxIndex];
+  lightboxImage.src = item.src; lightboxImage.alt = item.alt;
+  if (lightboxCaption) lightboxCaption.textContent = item.caption || item.alt;
+  lightboxDots?.replaceChildren(...lightboxItems.map((_, itemIndex) => {
+    const dot = document.createElement('button');
+    dot.type = 'button'; dot.className = 'carousel-dot'; dot.setAttribute('aria-label', `الصورة ${itemIndex + 1}`);
+    dot.setAttribute('aria-current', String(itemIndex === lightboxIndex)); dot.addEventListener('click', () => renderLightbox(itemIndex));
+    return dot;
+  }));
+  dialog?.classList.toggle('has-multiple', lightboxItems.length > 1);
 }
 
-document.querySelectorAll('[data-lightbox-trigger]').forEach((button) => {
-  button.addEventListener('click', () => {
-    const image = button.querySelector('img');
-    if (!dialog || !dialogImage || !image) return;
-    lightboxOpener = button;
-    dialogImage.src = image.currentSrc || image.src;
-    dialogImage.alt = image.alt;
-    if (dialogCaption) dialogCaption.textContent = image.dataset.caption || image.alt;
-    dialog.showModal();
+function closeLightbox() {
+  if (!dialog?.open) return;
+  dialog.close(); lightboxImage?.removeAttribute('src'); lightboxOpener?.focus();
+}
+
+document.querySelectorAll('[data-lightbox-trigger]').forEach((button) => button.addEventListener('click', () => {
+  const carousel = button.closest('[data-carousel]');
+  const triggers = carousel ? Array.from(carousel.querySelectorAll('[data-lightbox-trigger]')) : [button];
+  lightboxItems = triggers.map((trigger) => {
+    const image = trigger.querySelector('img');
+    return { src: image.currentSrc || image.src, alt: image.alt, caption: image.dataset.caption };
   });
+  lightboxOpener = button; renderLightbox(triggers.indexOf(button)); dialog?.showModal();
+}));
+
+dialog?.querySelector('[data-lightbox-close]')?.addEventListener('click', closeLightbox);
+dialog?.querySelector('[data-lightbox-prev]')?.addEventListener('click', () => renderLightbox(lightboxIndex - 1));
+dialog?.querySelector('[data-lightbox-next]')?.addEventListener('click', () => renderLightbox(lightboxIndex + 1));
+dialog?.addEventListener('click', (event) => { if (event.target === dialog) closeLightbox(); });
+dialog?.addEventListener('keydown', (event) => {
+  if (event.key === 'ArrowLeft') { event.preventDefault(); renderLightbox(lightboxIndex + 1); }
+  if (event.key === 'ArrowRight') { event.preventDefault(); renderLightbox(lightboxIndex - 1); }
 });
-
-document.querySelectorAll('[data-lightbox-close]').forEach((button) => {
-  button.addEventListener('click', closeLightbox);
-});
-
-dialog?.addEventListener('click', (event) => {
-  if (event.target === dialog) closeLightbox();
-});
-
-document.querySelectorAll('[data-slider]').forEach((slider) => {
-  const track = slider.querySelector('[data-slider-track]');
-  const slides = Array.from(slider.querySelectorAll('.product-slide'));
-  const dots = Array.from(slider.querySelectorAll('[data-slider-dot]'));
-  const previous = slider.querySelector('[data-slider-prev]');
-  const next = slider.querySelector('[data-slider-next]');
-  let activeIndex = 0;
-
-  if (!track || slides.length < 2) return;
-
-  const showSlide = (index) => {
-    activeIndex = (index + slides.length) % slides.length;
-    slides[activeIndex].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
-  };
-
-  const setActiveDot = (index) => {
-    activeIndex = index;
-    dots.forEach((dot, dotIndex) => dot.setAttribute('aria-current', String(dotIndex === index)));
-  };
-
-  previous?.addEventListener('click', () => showSlide(activeIndex - 1));
-  next?.addEventListener('click', () => showSlide(activeIndex + 1));
-  dots.forEach((dot, index) => dot.addEventListener('click', () => showSlide(index)));
-
-  if ('IntersectionObserver' in window) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) setActiveDot(slides.indexOf(entry.target));
-      });
-    }, { root: track, threshold: 0.65 });
-    slides.forEach((slide) => observer.observe(slide));
-  }
-});
+if (lightboxStage) addDragBehavior(lightboxStage, (direction, movedEnough) => {
+  if (movedEnough && lightboxItems.length > 1) renderLightbox(lightboxIndex + direction);
+}, (dragging) => lightboxStage.classList.toggle('is-dragging', dragging));
