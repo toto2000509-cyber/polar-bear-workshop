@@ -18,6 +18,49 @@ themeToggle?.addEventListener('click', () => {
 });
 themePreference.addEventListener?.('change', () => { if (!document.documentElement.dataset.theme) updateThemeControl(); });
 updateThemeControl();
+
+document.querySelectorAll('[data-copy-registration]').forEach((button) => {
+  const identity = button.closest('.footer-identity');
+  const number = identity.querySelector('.registration-number');
+  const status = identity.querySelector('[data-copy-status]');
+  let statusTimer;
+  button.addEventListener('click', async () => {
+    clearTimeout(statusTimer);
+    status.textContent = '';
+    let copied = false;
+    try {
+      await navigator.clipboard.writeText(number.textContent.trim());
+      copied = true;
+    } catch (_) {
+      // Support local previews and browsers without the Clipboard API.
+      const field = document.createElement('textarea');
+      field.value = number.textContent.trim();
+      field.className = 'sr-only';
+      field.setAttribute('readonly', '');
+      document.body.append(field);
+      field.select();
+      try { copied = document.execCommand('copy'); } catch (_) { /* Keep manual selection available. */ }
+      field.remove();
+      button.focus({ preventScroll: true });
+    }
+    status.textContent = copied ? 'تم نسخ الرقم' : 'تعذر النسخ، يمكنك تحديد الرقم ونسخه يدويًا';
+    statusTimer = setTimeout(() => { status.textContent = ''; }, 4000);
+  });
+});
+
+// Dock WhatsApp in the reserved footer space while the footer is visible.
+const siteFooter = document.querySelector('.site-footer');
+const floatingWhatsapp = document.querySelector('.floating-whatsapp');
+if (siteFooter && floatingWhatsapp) {
+  siteFooter.append(floatingWhatsapp);
+  if ('IntersectionObserver' in window) {
+    const footerObserver = new IntersectionObserver(([entry]) => {
+      floatingWhatsapp.classList.toggle('is-floating', !entry.isIntersecting);
+    }, { rootMargin: '0px 0px 90px 0px' });
+    footerObserver.observe(siteFooter);
+  }
+}
+
 const menuButton = document.querySelector('[data-menu-button]');
 const menu = document.querySelector('[data-menu]');
 menuButton?.addEventListener('click', () => { const open = menu.classList.toggle('is-open'); menuButton.setAttribute('aria-expanded', String(open)); document.body.classList.toggle('has-menu-open', open); });

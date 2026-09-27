@@ -218,16 +218,35 @@ h1, h2, h3 { font-weight: 800; line-height: 1.45; letter-spacing: -.02em; }
 .field textarea { resize: vertical; min-height: 110px; }
 .form-note { margin: 14px 0 0; color: var(--muted); font-size: 12px; }
 
-.site-footer { padding: 58px 0 22px; background: #0d1011; color: #e1e4df; }
+.site-footer { position: relative; padding: 58px 0 calc(90px + env(safe-area-inset-bottom, 0px)); background: #0d1011; color: #e1e4df; }
 .footer-grid { display: grid; grid-template-columns: 1.15fr .85fr .95fr; gap: 38px; }
 .footer-title { display: block; margin-bottom: 12px; color: var(--gold-soft); font-size: 14px; font-weight: 800; }
 .footer-grid p { margin: 6px 0; color: #b9c0ba; font-size: 13px; }
+.footer-grid > div { min-width: 0; }
+.footer-identity { direction: rtl; text-align: start; overflow-wrap: anywhere; }
+.footer-identity .brand { white-space: normal; margin-bottom: 16px; }
+.footer-identity .brand-name { font-size: 20px; line-height: 1.6; color: #e1e4df; }
+.footer-identity .footer-entity { color: #e1e4df; font-size: 15px; font-weight: 500; }
+.footer-registration { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; }
+.registration-value { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.registration-number { direction: ltr; unicode-bidi: isolate; white-space: nowrap; font-size: 15px; font-variant-numeric: tabular-nums; color: #e1e4df; user-select: all; }
+.registration-copy { display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: 44px; padding: 5px 10px; border: 1px solid var(--dark-line); border-radius: 6px; background: transparent; color: var(--gold-soft); font-size: 12px; }
+.registration-copy svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 1.7; }
+.registration-copy:hover { background: rgba(225, 155, 60, .12); border-color: var(--gold); }
+.registration-copy:focus-visible, .registration-link:focus-visible { outline: 2px solid var(--gold-soft); outline-offset: 4px; }
+.footer-identity .registration-status { min-height: 1.85em; margin: 0; color: var(--gold-soft); font-size: 12px; }
+.registration-verification { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; margin: 4px 0 12px; }
+.registration-link { color: var(--gold-soft); font-size: 13px; text-decoration: underline; text-underline-offset: 4px; }
+.registration-link:hover { color: #e1e4df; }
+.registration-verification small { color: #b9c0ba; font-size: 12px; }
 .footer-links { display: grid; gap: 5px; font-size: 13px; color: #d2d6d1; }
 .contact-number { direction: ltr; unicode-bidi: embed; display: inline-block; font-family: Arial, sans-serif; letter-spacing: .02em; }
 .footer-bottom { margin-top: 34px; padding-top: 18px; border-top: 1px solid var(--dark-line); color: #8d958e; font-size: 12px; }
 
 .floating-whatsapp { position: fixed; inset-inline-start: 18px; bottom: 18px; z-index: 25; display: inline-flex; align-items: center; gap: 8px; padding: 11px 15px; border: 1px solid rgba(255,255,255,.28); border-radius: 999px; background: rgba(37, 211, 102, .88); color: #102918; box-shadow: 0 10px 28px rgba(0, 0, 0, .2); font-size: 13px; font-weight: 800; backdrop-filter: blur(8px); }
 .floating-whatsapp .whatsapp-icon { width: 21px; height: 21px; }
+.site-footer .floating-whatsapp { position: absolute; bottom: calc(18px + env(safe-area-inset-bottom, 0px)); }
+.site-footer .floating-whatsapp.is-floating { position: fixed; }
 .floating-whatsapp:not(:has(.whatsapp-icon))::before { content: ''; width: 20px; height: 20px; flex: 0 0 20px; background: currentColor; -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 3a13 13 0 0 0-11 19.9L3.7 29l6.3-1.7A13 13 0 1 0 16 3zm0 23.7c-2 0-3.8-.5-5.4-1.5l-.4-.2-3.7 1 1-3.6-.3-.4A10.4 10.4 0 1 1 16 26.7z'/%3E%3C/svg%3E") center/contain no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 3a13 13 0 0 0-11 19.9L3.7 29l6.3-1.7A13 13 0 1 0 16 3zm0 23.7c-2 0-3.8-.5-5.4-1.5l-.4-.2-3.7 1 1-3.6-.3-.4A10.4 10.4 0 1 1 16 26.7z'/%3E%3C/svg%3E") center/contain no-repeat; }
 
 .product-hero { padding: 76px 0; background: linear-gradient(110deg, #141818, #262d2e); color: var(--white); }
