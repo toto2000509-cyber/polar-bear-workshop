@@ -218,7 +218,7 @@ h1, h2, h3 { font-weight: 800; line-height: 1.45; letter-spacing: -.02em; }
 .field textarea { resize: vertical; min-height: 110px; }
 .form-note { margin: 14px 0 0; color: var(--muted); font-size: 12px; }
 
-.site-footer { position: relative; padding: 58px 0 calc(90px + env(safe-area-inset-bottom, 0px)); background: #0d1011; color: #e1e4df; }
+.site-footer { position: relative; padding: 58px 0 calc(24px + env(safe-area-inset-bottom, 0px)); background: #0d1011; color: #e1e4df; }
 .footer-grid { display: grid; grid-template-columns: 1.15fr .85fr .95fr; gap: 38px; }
 .footer-title { display: block; margin-bottom: 12px; color: var(--gold-soft); font-size: 14px; font-weight: 800; }
 .footer-grid p { margin: 6px 0; color: #b9c0ba; font-size: 13px; }
@@ -243,10 +243,12 @@ h1, h2, h3 { font-weight: 800; line-height: 1.45; letter-spacing: -.02em; }
 .contact-number { direction: ltr; unicode-bidi: embed; display: inline-block; font-family: Arial, sans-serif; letter-spacing: .02em; }
 .footer-bottom { margin-top: 34px; padding-top: 18px; border-top: 1px solid var(--dark-line); color: #8d958e; font-size: 12px; }
 
-.floating-whatsapp { position: fixed; inset-inline-start: 18px; bottom: 18px; z-index: 25; display: inline-flex; align-items: center; gap: 8px; padding: 11px 15px; border: 1px solid rgba(255,255,255,.28); border-radius: 999px; background: rgba(37, 211, 102, .88); color: #102918; box-shadow: 0 10px 28px rgba(0, 0, 0, .2); font-size: 13px; font-weight: 800; backdrop-filter: blur(8px); }
+.footer-whatsapp-row { display: flex; justify-content: flex-end; min-height: 52px; margin-top: 24px; }
+.floating-whatsapp { position: static; inset-inline-start: auto; inset-inline-end: 18px; bottom: calc(18px + env(safe-area-inset-bottom, 0px)); z-index: 25; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 11px 15px; border: 1px solid rgba(37, 211, 102, .35); border-radius: 999px; background: rgba(37, 211, 102, .18); color: #b8f5ce; box-shadow: 0 6px 20px rgba(0, 0, 0, .1); font-size: 13px; font-weight: 800; transition: background .2s, color .2s; }
 .floating-whatsapp .whatsapp-icon { width: 21px; height: 21px; }
-.site-footer .floating-whatsapp { position: absolute; bottom: calc(18px + env(safe-area-inset-bottom, 0px)); }
-.site-footer .floating-whatsapp.is-floating { position: fixed; }
+.site-footer .floating-whatsapp.is-floating { position: fixed; background: rgba(37, 211, 102, .62); color: #102918; }
+.site-footer .floating-whatsapp:hover, .site-footer .floating-whatsapp:focus-visible { background: rgba(37, 211, 102, .9); color: #102918; }
+.floating-whatsapp:focus-visible { outline: 2px solid var(--gold-soft); outline-offset: 4px; }
 .floating-whatsapp:not(:has(.whatsapp-icon))::before { content: ''; width: 20px; height: 20px; flex: 0 0 20px; background: currentColor; -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 3a13 13 0 0 0-11 19.9L3.7 29l6.3-1.7A13 13 0 1 0 16 3zm0 23.7c-2 0-3.8-.5-5.4-1.5l-.4-.2-3.7 1 1-3.6-.3-.4A10.4 10.4 0 1 1 16 26.7z'/%3E%3C/svg%3E") center/contain no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 3a13 13 0 0 0-11 19.9L3.7 29l6.3-1.7A13 13 0 1 0 16 3zm0 23.7c-2 0-3.8-.5-5.4-1.5l-.4-.2-3.7 1 1-3.6-.3-.4A10.4 10.4 0 1 1 16 26.7z'/%3E%3C/svg%3E") center/contain no-repeat; }
 
 .product-hero { padding: 76px 0; background: linear-gradient(110deg, #141818, #262d2e); color: var(--white); }
@@ -307,7 +309,7 @@ h1, h2, h3 { font-weight: 800; line-height: 1.45; letter-spacing: -.02em; }
   .product-media { min-height: 0; }
   .step + .step { border-inline-start: 0; border-top: 1px solid var(--line); }
   .step { min-height: 0; padding: 19px; }
-  .floating-whatsapp { inset-inline-start: 12px; bottom: 12px; padding: 10px 12px; }
+  .floating-whatsapp { inset-inline-end: 12px; bottom: calc(12px + env(safe-area-inset-bottom, 0px)); padding: 10px 12px; }
   .quote-form, .quote-info { padding: 20px; }
   .carousel--detail .carousel-viewport { aspect-ratio: 4 / 3; }
   .lightbox { width: min(100% - 20px, 1120px); padding: 10px; }

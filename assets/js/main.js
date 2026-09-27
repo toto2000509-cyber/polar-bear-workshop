@@ -48,11 +48,10 @@ document.querySelectorAll('[data-copy-registration]').forEach((button) => {
   });
 });
 
-// Dock WhatsApp in the reserved footer space while the footer is visible.
+// Keep WhatsApp in its own footer row whenever the footer is visible.
 const siteFooter = document.querySelector('.site-footer');
 const floatingWhatsapp = document.querySelector('.floating-whatsapp');
 if (siteFooter && floatingWhatsapp) {
-  siteFooter.append(floatingWhatsapp);
   if ('IntersectionObserver' in window) {
     const footerObserver = new IntersectionObserver(([entry]) => {
       floatingWhatsapp.classList.toggle('is-floating', !entry.isIntersecting);
