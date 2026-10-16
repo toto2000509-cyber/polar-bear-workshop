@@ -81,7 +81,7 @@
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; direction: ltr; }
-body { margin: 0; background: var(--paper); color: var(--ink); direction: rtl; font-family: 'Thmanyah Sans', "IBM Plex Sans Arabic", Arial, sans-serif; font-size: 16px; line-height: 1.85; overflow-x: clip; }
+body { margin: 0; background: var(--paper); color: var(--ink); direction: rtl; font-family: 'Thmanyah Sans', "IBM Plex Sans Arabic", Tahoma, Arial, sans-serif; font-size: 16px; line-height: 1.85; overflow-x: clip; }
 body.has-menu-open { overflow: hidden; }
 a { color: inherit; text-decoration: none; }
 button, input, select, textarea { font: inherit; }
@@ -94,7 +94,7 @@ button { cursor: pointer; }
 .site-header { position: sticky; top: 0; z-index: 30; background: rgba(18, 21, 22, .97); color: var(--white); border-bottom: 1px solid var(--dark-line); }
 .nav-wrap { min-height: 78px; display: flex; align-items: center; gap: 25px; }
 .brand { display: flex; align-items: center; gap: 11px; white-space: nowrap; }
-.brand-fallback { width: 46px; height: 46px; display: block; flex: 0 0 46px; border-radius: 7px; background: transparent url('../images/brand/polar-bear-logo-yellow.png') center/contain no-repeat; color: transparent; font-size: 0; }
+.brand-fallback { width: 46px; height: 46px; display: block; flex: 0 0 46px; border-radius: 7px; background: transparent url('../images/brand/brand-logo-01.webp') center/contain no-repeat; color: transparent; font-size: 0; }
 .brand-name { font-size: clamp(14px, 1.8vw, 18px); font-weight: 800; line-height: 1.3; }
 .main-nav { display: flex; gap: 22px; margin-inline-start: auto; color: #d6dad7; font-size: 13px; }
 .main-nav a:hover, .main-nav a:focus-visible { color: var(--gold-soft); }
@@ -276,6 +276,7 @@ h1, h2, h3 { font-weight: 800; line-height: 1.45; letter-spacing: -.02em; }
 
 @media (max-width: 860px) {
   .nav-wrap { min-height: 68px; gap: 12px; }
+  .nav-wrap .brand { flex: 1; min-width: 0; white-space: normal; }
   .brand { order: 2; }
   .menu-button { display: grid; place-items: center; order: 1; width: 42px; height: 42px; padding: 8px; }
   .main-nav { display: none; }
@@ -296,7 +297,7 @@ h1, h2, h3 { font-weight: 800; line-height: 1.45; letter-spacing: -.02em; }
 @media (max-width: 560px) {
   .container { width: min(100% - 30px, 1180px); }
   .brand-name { font-size: 14px; }
-  .brand-fallback { width: 37px; height: 37px; font-size: 11px; }
+  .brand-fallback { width: 37px; height: 37px; flex-basis: 37px; font-size: 11px; }
   .hero { min-height: clamp(290px, 42svh, 330px); background-position: 60% center; }
   .hero-content { padding: 28px 0; }
   .hero h1 { width: 100%; min-width: 0; max-width: 100%; padding: 11px 12px 14px; font-size: clamp(18px, 5.1vw, 25px); letter-spacing: 0; white-space: nowrap; }

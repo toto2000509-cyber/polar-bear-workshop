@@ -1,0 +1,666 @@
+{
+  "generatedAt": "2026-10-16T17:03:01.522Z",
+  "generator": "scripts/prepare-media.cjs",
+  "note": "Local WebP derivatives only. Original files are preserved. Images are resized proportionally, never cropped or enlarged. The logo uses lossless WebP; alpha is preserved where present.",
+  "totals": {
+    "outputFiles": 26,
+    "originalUniqueFiles": 22,
+    "originalUniqueBytes": 24104456,
+    "generatedBytes": 3252452
+  },
+  "files": [
+    {
+      "source": "ملف الصور/صور القبة الشفافة/قبة شفافة بستة كراسٍ على سطح سعودي.png",
+      "output": "assets/images/domes/hero/dome-hero-01.webp",
+      "original": {
+        "format": "png",
+        "width": 1086,
+        "height": 1448,
+        "bytes": 2299140,
+        "hasAlpha": false
+      },
+      "generated": {
+        "format": "webp",
+        "width": 1080,
+        "height": 1440,
+        "bytes": 143808,
+        "hasAlpha": false
+      },
+      "settings": {
+        "maxWidth": 1440,
+        "maxHeight": 1440,
+        "quality": 87,
+        "lossless": false,
+        "withoutEnlargement": true,
+        "cropped": false
+      }
+    },
+    {
+      "source": "ملف الصور/صور القبة الشفافة/قبة شفافة بستة كراسٍ على سطح سعودي.png",
+      "output": "assets/images/domes/hero/dome-hero-01-640.webp",
+      "original": {
+        "format": "png",
+        "width": 1086,
+        "height": 1448,
+        "bytes": 2299140,
+        "hasAlpha": false
+      },
+      "generated": {
+        "format": "webp",
+        "width": 640,
+        "height": 853,
+        "bytes": 55724,
+        "hasAlpha": false
+      },
+      "settings": {
+        "maxWidth": 640,
+        "quality": 85,
+        "lossless": false,
+        "withoutEnlargement": true,
+        "cropped": false
+      }
+    },
+    {
+      "source": "ملف الصور/صور القبة الشفافة/جلسة قهوة عربية داخل قبة شفافة-5.png",
+      "output": "assets/images/domes/hero/dome-hero-02.webp",
+      "original": {
+        "format": "png",
+        "width": 941,
+        "height": 1497,
+        "bytes": 2723710,
+        "hasAlpha": true
+      },
+      "generated": {
+        "format": "webp",
+        "width": 905,
+        "height": 1440,
+        "bytes": 283584,
+        "hasAlpha": false
+      },
+      "settings": {
+        "maxWidth": 1440,
+        "maxHeight": 1440,
+        "quality": 87,
+        "lossless": false,
+        "withoutEnlargement": true,
+        "cropped": false
+      }
+    },
+    {
+      "source": "ملف الصور/صور القبة الشفافة/جلسة قهوة عربية داخل قبة شفافة-5.png",
+      "output": "assets/images/domes/hero/dome-hero-02-640.webp",
+      "original": {
+        "format": "png",
+        "width": 941,
+        "height": 1497,
+        "bytes": 2723710,
+        "hasAlpha": true
+      },
+      "generated": {
+        "format": "webp",
+        "width": 640,
+        "height": 1018,
+        "bytes": 148402,
+        "hasAlpha": false
+      },
+      "settings": {
+        "maxWidth": 640,
+        "quality": 85,
+        "lossless": false,
+        "withoutEnlargement": true,
+        "cropped": false
+      }
+    },
+    {
+      "source": "assets/images/domes/dome-night-01.jpg",
+      "output": "assets/images/domes/hero/dome-hero-03.webp",
+      "original": {
+        "format": "jpeg",
+        "width": 768,
+        "height": 1376,
+        "bytes": 837352,
+        "hasAlpha": false
+      },
+      "generated": {
+        "format": "webp",
+        "width": 768,
+        "height": 1376,
+        "bytes": 181452,
+        "hasAlpha": false
+      },
+      "settings": {
+        "maxWidth": 1440,
+        "maxHeight": 1440,
+        "quality": 87,
+        "lossless": false,
+        "withoutEnlargement": true,
+        "cropped": false
+      }
+    },
+    {
+      "source": "assets/images/domes/dome-night-01.jpg",
+      "output": "assets/images/domes/hero/dome-hero-03-640.webp",
+      "original": {
+        "format": "jpeg",
+        "width": 768,
+        "height": 1376,
+        "bytes": 837352,
+        "hasAlpha": false
+      },
+      "generated": {
+        "format": "webp",
+        "width": 640,
+        "height": 1147,
+        "bytes": 127676,
+        "hasAlpha": false
+      },
+      "settings": {
+        "maxWidth": 640,
+        "quality": 85,
+        "lossless": false,
+        "withoutEnlargement": true,
+        "cropped": false
+      }
+    },
+    {
+      "source": "assets/images/domes/dome-project-01.jpg",
+      "output": "assets/images/domes/gallery/dome-gallery-01.webp",
+      "original": {
+        "format": "jpeg",
+        "width": 1000,
+        "height": 1000,
+        "bytes": 147177,
+        "hasAlpha": false
+      },
+      "generated": {
+        "format": "webp",
+        "width": 1000,
+        "height": 1000,
+        "bytes": 123660,
+        "hasAlpha": false
+      },
+      "settings": {
+        "maxWidth": 1200,
+        "quality": 85,
+        "lossless": false,
+        "withoutEnlargement": true,
+        "cropped": false
+      }
+    },
+    {
+      "source": "assets/images/domes/dome-day-01.jpg",
+      "output": "assets/images/domes/gallery/dome-day-01.webp",
+      "original": {
+        "format": "jpeg",
+        "width": 768,
+        "height": 1376,
+        "bytes": 847980,
+        "hasAlpha": false
+      },
+      "generated": {
+        "format": "webp",
+        "width": 768,
+        "height": 1376,
+        "bytes": 190450,
+        "hasAlpha": false
+      },
+      "settings": {
+        "maxWidth": 1200,
+        "quality": 85,
+        "lossless": false,
+        "withoutEnlargement": true,
+        "cropped": false
+      }
+    },
+    {
+      "source": "assets/images/domes/dome-night-01.jpg",
+      "output": "assets/images/domes/gallery/dome-night-01.webp",
+      "original": {
+        "format": "jpeg",
+        "width": 768,
+        "height": 1376,
+        "bytes": 837352,
+        "hasAlpha": false
+      },
+      "generated": {
+        "format": "webp",
+        "width": 768,
+        "height": 1376,
+        "bytes": 166972,
+        "hasAlpha": false
+      },
+      "settings": {
+        "maxWidth": 1200,
+        "quality": 85,
+        "lossless": false,
+        "withoutEnlargement": true,
+        "cropped": false
+      }
+    },
+    {
+      "source": "assets/images/domes/dome-rain-01.jpg",
+      "output": "assets/images/domes/gallery/dome-rain-01.webp",
+      "original": {
+        "format": "jpeg",
+        "width": 768,
+        "height": 1376,
+        "bytes": 769400,
+        "hasAlpha": false
+      },
+      "generated": {
+        "format": "webp",
+        "width": 768,
+        "height": 1376,
+        "bytes": 162806,
+        "hasAlpha": false
+      },
+      "settings": {
+        "maxWidth": 1200,
+        "quality": 85,
+        "lossless": false,
+        "withoutEnlargement": true,
+        "cropped": false
+      }
+    },
+    {
+      "source": "assets/images/domes/dome-studio-01.jpg",
+      "output": "assets/images/domes/gallery/dome-interior-01.webp",
+      "original": {
+        "format": "jpeg",
+        "width": 1232,
+        "height": 1600,
+        "bytes": 571866,
+        "hasAlpha": false
+      },
+      "generated": {
+        "format": "webp",
+        "width": 1200,
+        "height": 1558,
+        "bytes": 168070,
+        "hasAlpha": false
+      },
+      "settings": {
+        "maxWidth": 1200,
+        "quality": 85,
+        "lossless": false,
+        "withoutEnlargement": true,
+        "cropped": false
+      }
+    },
+    {
+      "source": "assets/images/domes/dome-studio-02.jpg",
+      "output": "assets/images/domes/gallery/dome-interior-02.webp",
+      "original": {
+        "format": "jpeg",
+        "width": 1408,
+        "height": 1408,
+        "bytes": 338159,
+        "hasAlpha": false
+      },
+      "generated": {
+        "format": "webp",
+        "width": 1200,
+        "height": 1200,
+        "bytes": 68402,
+        "hasAlpha": false
+      },
+      "settings": {
+        "maxWidth": 1200,
+        "quality": 85,
+        "lossless": false,
+        "withoutEnlargement": true,
+        "cropped": false
+      }
+    },
+    {
+      "source": "ملف الصور/صور القبة الشفافة/٢٠٢٦_٠٣_٢١_٠٩_٣٩_IMG_7458.00_00_04_09.Still001.png",
+      "output": "assets/images/domes/gallery/dome-workshop-01.webp",
+      "original": {
+        "format": "png",
+        "width": 720,
+        "height": 1280,
+        "bytes": 2503357,
+        "hasAlpha": true
+      },
+      "generated": {
+        "format": "webp",
+        "width": 720,
+        "height": 1280,
+        "bytes": 123444,
+        "hasAlpha": false
+      },
+      "settings": {
+        "maxWidth": 1200,
+        "quality": 85,
+        "lossless": false,
+        "withoutEnlargement": true,
+        "cropped": false
+      }
+    },
+    {
+      "source": "ملف الصور/صور القبة الشفافة/٢٠٢٦_٠٣_٢١_١٢_٠١_IMG_7459.00_00_00_00.Still001.png",
+      "output": "assets/images/domes/gallery/dome-interior-03.webp",
+      "original": {
+        "format": "png",
+        "width": 480,
+        "height": 854,
+        "bytes": 939784,
+        "hasAlpha": true
+      },
+      "generated": {
+        "format": "webp",
+        "width": 480,
+        "height": 854,
+        "bytes": 49346,
+        "hasAlpha": false
+      },
+      "settings": {
+        "maxWidth": 1200,
+        "quality": 85,
+        "lossless": false,
+        "withoutEnlargement": true,
+        "cropped": false
+      }
+    },
+    {
+      "source": "ملف الصور/صور القبة الشفافة/مواصفات قبة 3.9متر.png",
+      "output": "assets/images/domes/gallery/dome-specifications-01.webp",
+      "original": {
+        "format": "png",
+        "width": 1024,
+        "height": 1024,
+        "bytes": 385075,
+        "hasAlpha": true
+      },
+      "generated": {
+        "format": "webp",
+        "width": 1024,
+        "height": 1024,
+        "bytes": 139916,
+        "hasAlpha": false
+      },
+      "settings": {
+        "maxWidth": 1200,
+        "quality": 94,
+        "lossless": false,
+        "withoutEnlargement": true,
+        "cropped": false
+      }
+    },
+    {
+      "source": "assets/images/machines/bending-machine-01.png",
+      "output": "assets/images/machines/machine-bending-01.webp",
+      "original": {
+        "format": "png",
+        "width": 1536,
+        "height": 2046,
+        "bytes": 3975023,
+        "hasAlpha": true
+      },
+      "generated": {
+        "format": "webp",
+        "width": 1200,
+        "height": 1598,
+        "bytes": 98428,
+        "hasAlpha": false
+      },
+      "settings": {
+        "maxWidth": 1200,
+        "quality": 85,
+        "lossless": false,
+        "withoutEnlargement": true,
+        "cropped": false
+      }
+    },
+    {
+      "source": "assets/images/trailers/trailer-01.jpg",
+      "output": "assets/images/trailers/trailer-01.webp",
+      "original": {
+        "format": "jpeg",
+        "width": 1168,
+        "height": 784,
+        "bytes": 182074,
+        "hasAlpha": false
+      },
+      "generated": {
+        "format": "webp",
+        "width": 1168,
+        "height": 784,
+        "bytes": 38360,
+        "hasAlpha": false
+      },
+      "settings": {
+        "maxWidth": 1200,
+        "quality": 85,
+        "lossless": false,
+        "withoutEnlargement": true,
+        "cropped": false
+      }
+    },
+    {
+      "source": "assets/images/greenhouses/greenhouse-01.jpg",
+      "output": "assets/images/greenhouses/greenhouse-01.webp",
+      "original": {
+        "format": "jpeg",
+        "width": 1168,
+        "height": 784,
+        "bytes": 307237,
+        "hasAlpha": false
+      },
+      "generated": {
+        "format": "webp",
+        "width": 1168,
+        "height": 784,
+        "bytes": 114004,
+        "hasAlpha": false
+      },
+      "settings": {
+        "maxWidth": 1200,
+        "quality": 85,
+        "lossless": false,
+        "withoutEnlargement": true,
+        "cropped": false
+      }
+    },
+    {
+      "source": "assets/images/machines/bending-machine-02.png",
+      "output": "assets/images/machines/machine-bending-02.webp",
+      "original": {
+        "format": "png",
+        "width": 1536,
+        "height": 2046,
+        "bytes": 4400103,
+        "hasAlpha": true
+      },
+      "generated": {
+        "format": "webp",
+        "width": 1200,
+        "height": 1598,
+        "bytes": 108386,
+        "hasAlpha": false
+      },
+      "settings": {
+        "maxWidth": 1200,
+        "quality": 85,
+        "lossless": false,
+        "withoutEnlargement": true,
+        "cropped": false
+      }
+    },
+    {
+      "source": "assets/images/trailers/trailer-02.jpg",
+      "output": "assets/images/trailers/trailer-02.webp",
+      "original": {
+        "format": "jpeg",
+        "width": 1168,
+        "height": 784,
+        "bytes": 142460,
+        "hasAlpha": false
+      },
+      "generated": {
+        "format": "webp",
+        "width": 1168,
+        "height": 784,
+        "bytes": 32496,
+        "hasAlpha": false
+      },
+      "settings": {
+        "maxWidth": 1200,
+        "quality": 85,
+        "lossless": false,
+        "withoutEnlargement": true,
+        "cropped": false
+      }
+    },
+    {
+      "source": "assets/images/greenhouses/greenhouse-02.jpg",
+      "output": "assets/images/greenhouses/greenhouse-02.webp",
+      "original": {
+        "format": "jpeg",
+        "width": 1168,
+        "height": 784,
+        "bytes": 322255,
+        "hasAlpha": false
+      },
+      "generated": {
+        "format": "webp",
+        "width": 1168,
+        "height": 784,
+        "bytes": 120492,
+        "hasAlpha": false
+      },
+      "settings": {
+        "maxWidth": 1200,
+        "quality": 85,
+        "lossless": false,
+        "withoutEnlargement": true,
+        "cropped": false
+      }
+    },
+    {
+      "source": "assets/images/car-shades/car-shade-01.jpg",
+      "output": "assets/images/car-shades/car-shade-01.webp",
+      "original": {
+        "format": "jpeg",
+        "width": 1168,
+        "height": 784,
+        "bytes": 409906,
+        "hasAlpha": false
+      },
+      "generated": {
+        "format": "webp",
+        "width": 1168,
+        "height": 784,
+        "bytes": 170112,
+        "hasAlpha": false
+      },
+      "settings": {
+        "maxWidth": 1200,
+        "quality": 85,
+        "lossless": false,
+        "withoutEnlargement": true,
+        "cropped": false
+      }
+    },
+    {
+      "source": "assets/images/car-shades/car-shade-02.jpg",
+      "output": "assets/images/car-shades/car-shade-02.webp",
+      "original": {
+        "format": "jpeg",
+        "width": 1408,
+        "height": 768,
+        "bytes": 710157,
+        "hasAlpha": false
+      },
+      "generated": {
+        "format": "webp",
+        "width": 1200,
+        "height": 655,
+        "bytes": 93558,
+        "hasAlpha": false
+      },
+      "settings": {
+        "maxWidth": 1200,
+        "quality": 85,
+        "lossless": false,
+        "withoutEnlargement": true,
+        "cropped": false
+      }
+    },
+    {
+      "source": "assets/images/car-shades/car-shade-03.jpg",
+      "output": "assets/images/car-shades/car-shade-03.webp",
+      "original": {
+        "format": "jpeg",
+        "width": 1168,
+        "height": 784,
+        "bytes": 334117,
+        "hasAlpha": false
+      },
+      "generated": {
+        "format": "webp",
+        "width": 1168,
+        "height": 784,
+        "bytes": 122042,
+        "hasAlpha": false
+      },
+      "settings": {
+        "maxWidth": 1200,
+        "quality": 85,
+        "lossless": false,
+        "withoutEnlargement": true,
+        "cropped": false
+      }
+    },
+    {
+      "source": "assets/images/car-shades/car-shade-04.jpg",
+      "output": "assets/images/car-shades/car-shade-04.webp",
+      "original": {
+        "format": "jpeg",
+        "width": 1168,
+        "height": 784,
+        "bytes": 280248,
+        "hasAlpha": false
+      },
+      "generated": {
+        "format": "webp",
+        "width": 1168,
+        "height": 784,
+        "bytes": 84166,
+        "hasAlpha": false
+      },
+      "settings": {
+        "maxWidth": 1200,
+        "quality": 85,
+        "lossless": false,
+        "withoutEnlargement": true,
+        "cropped": false
+      }
+    },
+    {
+      "source": "assets/images/brand/polar-bear-logo-yellow.png",
+      "output": "assets/images/brand/brand-logo-01.webp",
+      "original": {
+        "format": "png",
+        "width": 1254,
+        "height": 1254,
+        "bytes": 677876,
+        "hasAlpha": true
+      },
+      "generated": {
+        "format": "webp",
+        "width": 640,
+        "height": 640,
+        "bytes": 136696,
+        "hasAlpha": true
+      },
+      "settings": {
+        "maxWidth": 640,
+        "quality": 85,
+        "lossless": true,
+        "withoutEnlargement": true,
+        "cropped": false
+      }
+    }
+  ]
+}

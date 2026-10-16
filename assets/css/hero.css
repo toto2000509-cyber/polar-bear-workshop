@@ -1,0 +1,104 @@
+/* Homepage showcase. Product-page layouts remain in styles.css. */
+.dome-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 64px 0 26px;
+  background: radial-gradient(ellipse at 50% 5%, rgba(197, 154, 76, .09), transparent 48%), #0e1413;
+  color: #f5f4ed;
+}
+.dome-hero__intro { max-width: 920px; margin: 0 auto 50px; text-align: center; }
+.dome-hero__eyebrow { display: flex; justify-content: center; align-items: center; gap: 10px; margin: 0 0 22px; color: #ccb18a; font-size: 13px; }
+.dome-hero__eyebrow > span { width: 6px; height: 6px; background: #e6b65e; border-radius: 50%; box-shadow: 0 0 18px rgba(230, 182, 94, .45); }
+.dome-hero h1 { margin: 0; font-size: clamp(36px, 5.2vw, 70px); font-weight: 700; line-height: 1.45; letter-spacing: -.035em; text-wrap: balance; }
+.dome-hero h1 > span { color: #edc789; }
+.dome-hero__lead { margin: 20px 0 0; color: #bcc5c0; font-size: clamp(15px, 1.5vw, 18px); line-height: 1.9; }
+.dome-hero__actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin-top: 27px; }
+.dome-hero__actions .button { min-width: 170px; min-height: 50px; border-radius: 7px; font-weight: 700; }
+.dome-hero__actions .button-primary { background: #e8bb71; color: #151b18; }
+.dome-hero__actions .button-primary:hover { background: #f0cd95; }
+.dome-hero__actions .button-outline { border-color: #64716a; background: transparent; color: #f5f4ed; }
+.dome-hero__actions .button-outline:hover { border-color: #edc789; background: rgba(237, 199, 137, .05); }
+.dome-hero__actions svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.6; }
+.dome-showcase { border: 1px solid #34403a; border-radius: 16px; overflow: hidden; background: #161f1b; box-shadow: 0 28px 70px rgba(0, 0, 0, .25); }
+.dome-showcase:focus-visible, .dome-hero a:focus-visible, .dome-hero button:focus-visible { outline: 2px solid #f3d49f; outline-offset: 5px; }
+.dome-showcase__stage { position: relative; display: grid; min-height: 580px; }
+.dome-scene { position: relative; grid-area: 1 / 1; display: grid; grid-template-columns: 1.08fr 1fr; min-width: 0; margin: 0; opacity: 0; visibility: hidden; pointer-events: none; transition: opacity .85s ease, visibility .85s; }
+.dome-scene.is-active { opacity: 1; visibility: visible; pointer-events: auto; }
+.dome-scene__media { display: grid; place-items: center; align-self: center; height: 580px; min-width: 0; min-height: 0; padding: 20px; background: radial-gradient(ellipse at 50% 50%, #354139, #111815 85%); overflow: hidden; }
+.dome-scene__media img { display: block; width: 100%; height: 100%; min-height: 0; max-height: 540px; object-fit: contain; border-radius: 4px; }
+.dome-scene__copy { display: flex; flex-direction: column; justify-content: center; align-items: flex-start; min-width: 0; padding: 44px 48px; background: radial-gradient(ellipse at 0% 100%, rgba(199, 160, 85, .08), transparent 70%); }
+.dome-scene__eyebrow { display: flex; align-items: center; gap: 18px; color: #b9c3ba; font-size: 13px; }
+.dome-scene__eyebrow > span { color: #b79b6e; font-size: 12px; direction: ltr; }
+.dome-scene h2 { margin: 25px 0 18px; color: #f3f1e9; font-size: clamp(30px, 3vw, 43px); font-weight: 500; line-height: 1.5; letter-spacing: -.025em; }
+.dome-scene h2 span { color: #e5c48e; }
+.dome-scene__copy > p { max-width: 320px; margin: 0; color: #c0c9c2; font-size: 16px; line-height: 1.95; }
+.dome-scene__link { display: inline-flex; gap: 26px; align-items: center; margin-top: 26px; padding-bottom: 8px; border-bottom: 1px solid #6d614a; color: #edd0a1; font-size: 14px; }
+.dome-scene__link > span { font-size: 23px; line-height: 1; }
+.dome-scene__note { margin-top: 42px; color: #a8b4aa; font-size: 12px; }
+.dome-showcase__controls { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 14px; padding: 12px 22px; border-top: 1px solid #34403a; background: #131c17; }
+.dome-showcase__controls[hidden] { display: none; }
+.dome-showcase__tabs { display: flex; flex-wrap: wrap; align-items: center; gap: 7px; }
+.dome-showcase__tab { display: flex; gap: 9px; justify-content: center; align-items: center; min-height: 44px; padding: 8px 15px; border: 1px solid transparent; border-radius: 5px; background: transparent; color: #b7c1b9; font-size: 13px; transition: color .2s, background .2s, border-color .2s; }
+.dome-showcase__tab > span { font-size: 11px; opacity: .7; }
+.dome-showcase__tab[aria-pressed="true"] { border-color: #675b41; background: #252a20; color: #f0d09b; }
+.dome-showcase__tab:hover { color: #f0d09b; }
+.dome-showcase__navigation { display: flex; align-items: center; gap: 10px; }
+.dome-showcase__icon { width: 44px; height: 44px; padding: 0; border: 1px solid #3b473e; border-radius: 50%; background: transparent; color: #e7d8bd; font: 22px Arial, sans-serif; }
+.dome-showcase__icon:hover { background: #293329; }
+.dome-showcase__count { direction: ltr; min-width: 62px; text-align: center; color: #97a79b; font: 12px Arial, sans-serif; letter-spacing: 1px; }
+.dome-showcase__count b { color: #edd0a1; font-weight: 400; }
+.dome-showcase__play { min-height: 44px; padding: 6px 12px; border: 0; border-inline-start: 1px solid #3b473e; background: transparent; color: #b9c3b9; font-size: 12px; }
+.dome-showcase__play:hover { color: #f0d09b; }
+.dome-hero__footnote { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 15px; margin-top: 22px; color: #a6b0a8; font-size: 12px; }
+.dome-hero__footnote a { display: inline-flex; gap: 16px; color: #d9c29e; }
+#products, #quote, #shipping { scroll-margin-top: 96px; }
+@media (prefers-reduced-motion: no-preference) {
+  .dome-hero__intro { animation: hero-intro .85s ease both; }
+  .dome-scene.is-active .dome-scene__media img { animation: hero-image-in 1.4s ease both; }
+  @keyframes hero-intro { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes hero-image-in { from { transform: scale(.985); } to { transform: scale(1); } }
+}
+@media (max-width: 1000px) {
+  .dome-hero { padding-top: 48px; }
+  .dome-showcase__stage { min-height: 500px; }
+  .dome-scene__media { height: 500px; }
+  .dome-scene__media img { max-height: 460px; }
+  .dome-scene__copy { padding: 30px; }
+  .dome-scene h2 { font-size: 32px; }
+  .dome-scene__copy > p { font-size: 15px; }
+  .dome-scene__note { margin-top: 28px; }
+  .dome-showcase__controls { padding-inline: 12px; }
+  .dome-showcase__tab { padding-inline: 10px; }
+}
+@media (max-width: 680px) {
+  .dome-hero { padding-top: 37px; padding-bottom: 24px; }
+  .dome-hero__intro { margin-bottom: 32px; }
+  .dome-hero__eyebrow { font-size: 12px; margin-bottom: 15px; }
+  .dome-hero h1 { max-width: 500px; margin-inline: auto; font-size: clamp(32px, 7.5vw, 44px); line-height: 1.5; }
+  .dome-hero h1 > span { display: block; }
+  .dome-hero__lead { margin-top: 16px; font-size: 15px; }
+  .desktop-break { display: none; }
+  .dome-hero__actions { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; margin-top: 23px; }
+  .dome-hero__actions .button { width: 100%; min-width: 0; padding-inline: 10px; font-size: 13px; }
+  .dome-showcase { border-radius: 12px; }
+  .dome-showcase__stage { min-height: 0; }
+  .dome-scene { grid-template-columns: 1fr; grid-template-rows: clamp(340px, 100vw, 490px) minmax(300px, auto); }
+  .dome-scene__media { height: clamp(340px, 100vw, 490px); padding: 14px; }
+  .dome-scene__media img { max-height: calc(clamp(340px, 100vw, 490px) - 28px); }
+  .dome-scene__copy { padding: 24px; }
+  .dome-scene h2 { margin: 12px 0; font-size: 28px; }
+  .dome-scene h2 br { display: none; }
+  .dome-scene h2 span { display: block; }
+  .dome-scene__copy > p { max-width: 100%; font-size: 14px; }
+  .dome-scene__link { margin-top: 16px; padding-bottom: 5px; font-size: 13px; }
+  .dome-scene__note { margin-top: 18px; font-size: 11px; }
+  .dome-showcase__controls { justify-content: center; gap: 8px; padding: 12px; }
+  .dome-showcase__tabs { width: 100%; justify-content: center; gap: 6px; }
+  .dome-showcase__tab { flex: 1; }
+  .dome-showcase__navigation { justify-content: center; width: 100%; }
+  .dome-hero__footnote { justify-content: center; text-align: center; font-size: 11px; }
+  #products, #quote, #shipping { scroll-margin-top: 82px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dome-scene { transition: none; }
+}

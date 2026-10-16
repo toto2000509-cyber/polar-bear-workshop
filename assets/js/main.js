@@ -63,7 +63,7 @@ if (siteFooter && floatingWhatsapp) {
 const menuButton = document.querySelector('[data-menu-button]');
 const menu = document.querySelector('[data-menu]');
 menuButton?.addEventListener('click', () => { const open = menu.classList.toggle('is-open'); menuButton.setAttribute('aria-expanded', String(open)); document.body.classList.toggle('has-menu-open', open); });
-menu?.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => { menu.classList.remove('is-open'); menuButton?.setAttribute('aria-expanded', 'false'); }));
+menu?.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => { menu.classList.remove('is-open'); menuButton?.setAttribute('aria-expanded', 'false'); document.body.classList.remove('has-menu-open'); }));
 function whatsappUrl(product = 'استفسار عام', fields = {}) { const lines = ['السلام عليكم،', 'أرغب بطلب عرض سعر.', '', 'نوع المنتج:', product, '', 'اسم المؤسسة / الشركة أو المدير:', fields.business || '', 'المدينة:', fields.city || '', 'رقم الجوال:', fields.phone || '', 'العدد:', fields.quantity || '', 'مواصفات إضافية:', fields.details || '']; return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(lines.join('\n'))}`; }
 document.querySelectorAll('[data-quote-product]').forEach((link) => { link.href = whatsappUrl(link.dataset.quoteProduct || 'استفسار عام'); });
 const form = document.querySelector('[data-quote-form]');
