@@ -1,23 +1,28 @@
-/* Compact automatic homepage gallery. */
+/* Full-width automatic homepage gallery. */
 .dome-hero {
+  --hero-header-height: 78px;
   position: relative;
   overflow: hidden;
-  padding: 24px 0;
-  background: radial-gradient(ellipse at 50% 5%, rgba(197, 154, 76, .09), transparent 48%), #0e1413;
+  background: #0e1413;
   color: #f5f4ed;
 }
-.dome-showcase { width: min(100%, 360px); margin-inline: auto; border: 1px solid #34403a; border-radius: 12px; overflow: hidden; background: #161f1b; }
-.dome-showcase__stage { position: relative; height: 320px; }
-.dome-scene { position: absolute; inset: 0; margin: 0; opacity: 0; visibility: hidden; pointer-events: none; transition: opacity .85s ease, visibility .85s; }
+.dome-hero__frame, .dome-showcase { width: 100%; }
+.dome-showcase { overflow: hidden; background: #161f1b; }
+.dome-showcase__stage { position: relative; height: calc(100svh - var(--hero-header-height)); min-height: 280px; }
+.dome-scene { position: absolute; inset: 0; margin: 0; opacity: 0; visibility: hidden; pointer-events: none; transition: opacity .6s ease, visibility .6s; }
 .dome-scene.is-active { opacity: 1; visibility: visible; }
-.dome-scene__media { display: grid; place-items: center; height: 100%; padding: 10px; background: radial-gradient(ellipse at 50% 50%, #354139, #111815 85%); }
-.dome-scene__media img { display: block; width: 100%; height: 100%; min-height: 0; max-height: 300px; object-fit: contain; border-radius: 4px; user-select: none; }
+.dome-scene__media { width: 100%; height: 100%; overflow: hidden; }
+.dome-scene__media img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 73%; user-select: none; }
+.dome-scene:nth-child(2) img { object-position: 50% 67%; }
+.dome-scene:nth-child(3) img { object-position: 50% 65%; }
 #products, #quote, #shipping { scroll-margin-top: 96px; }
+@media (max-width: 860px) {
+  .dome-hero { --hero-header-height: 68px; }
+}
 @media (max-width: 680px) {
-  .dome-hero { padding: 16px 0; }
-  .dome-showcase { max-width: 300px; }
-  .dome-showcase__stage { height: 260px; }
-  .dome-scene__media img { max-height: 240px; }
+  .dome-showcase__stage { height: min(calc(100svh - var(--hero-header-height)), 160vw); }
+  .dome-scene__media img { object-position: 35% 50%; }
+  .dome-scene:nth-child(2) img, .dome-scene:nth-child(3) img { object-position: 50% 50%; }
   #products, #quote, #shipping { scroll-margin-top: 82px; }
 }
 @media (prefers-reduced-motion: reduce) {
