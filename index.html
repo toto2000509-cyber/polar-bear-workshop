@@ -12,7 +12,7 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <script src="assets/js/theme-init.js"></script>
   <link rel="stylesheet" href="assets/css/styles.css?v=20261016-media1">
-  <link rel="stylesheet" href="assets/css/hero.css?v=20261016-media1">
+  <link rel="stylesheet" href="assets/css/hero.css?v=20261018-simple1">
 </head>
 <body>
   <a class="skip-link" href="#content">انتقل إلى المحتوى</a>
@@ -29,71 +29,27 @@
   <main id="content">
     <section class="dome-hero" aria-labelledby="hero-title">
       <div class="container">
-        <div class="dome-hero__intro">
-          <p class="dome-hero__eyebrow"><span aria-hidden="true"></span> ورشة الدب القطبي للصناعة</p>
-          <h1 id="hero-title">منتجات <span>تتحدث الجودة عنها</span></h1>
-          <p class="dome-hero__lead">حلول مبتكرة في القباب الشفافة والهياكل المعدنية ومكائن التشكيل.<br class="desktop-break"> نصنع التفاصيل التي تمنح مشروعك طابعه الخاص.</p>
-          <div class="dome-hero__actions">
-            <a class="button button-primary" href="#products">تصفح المنتجات <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14m-6-6 6 6 6-6"/></svg></a>
-            <a class="button button-outline" href="#quote">اطلب عرض سعر</a>
-          </div>
-        </div>
+        <h1 id="hero-title" class="sr-only">منتجات تتحدث الجودة عنها</h1>
 
-        <div class="dome-showcase" data-hero-slider role="region" aria-roledescription="عارض صور" aria-label="اكتشف القبة الشفافة" tabindex="0">
+        <div class="dome-showcase" data-hero-slider role="region" aria-roledescription="عارض صور" aria-label="صور القبة الشفافة" aria-live="off">
           <div class="dome-showcase__stage" id="dome-hero-slides">
             <figure class="dome-scene is-active" data-hero-slide role="group" aria-roledescription="شريحة" aria-label="1 من 3: القبة من الخارج">
               <div class="dome-scene__media">
-                <img src="assets/images/domes/hero/dome-hero-01.webp" srcset="assets/images/domes/hero/dome-hero-01-640.webp 640w, assets/images/domes/hero/dome-hero-01.webp 1080w" sizes="(max-width: 680px) calc(100vw - 30px), (max-width: 1000px) 50vw, 600px" width="1080" height="1440" fetchpriority="high" decoding="async" alt="قبة شفافة بإطار داكن وجلسة كراسٍ على سطح خارجي">
+                <img src="assets/images/domes/hero/dome-hero-01.webp" srcset="assets/images/domes/hero/dome-hero-01-640.webp 640w, assets/images/domes/hero/dome-hero-01.webp 1080w" sizes="240px" width="1080" height="1440" fetchpriority="high" decoding="async" alt="قبة شفافة بإطار داكن وجلسة كراسٍ على سطح خارجي">
               </div>
-              <figcaption class="dome-scene__copy">
-                <span class="dome-scene__eyebrow">القبة الشفافة <span aria-hidden="true">/ 01</span></span>
-                <h2>مساحة شفافة.<br><span>احتمالات واسعة.</span></h2>
-                <p>تصميم يفتح المساحة على محيطها، ويمنح الجلسات الخارجية حضورًا مختلفًا.</p>
-                <a class="dome-scene__link" href="products/transparent-domes.html">اكتشف تفاصيل القبة <span aria-hidden="true">↗</span></a>
-                <span class="dome-scene__note">تصنيع حسب المقاس والمواصفات المطلوبة</span>
-              </figcaption>
             </figure>
             <figure class="dome-scene" data-hero-slide role="group" aria-roledescription="شريحة" aria-label="2 من 3: الجلسة الداخلية" aria-hidden="true" inert>
               <div class="dome-scene__media">
-                <img data-src="assets/images/domes/hero/dome-hero-02.webp" data-srcset="assets/images/domes/hero/dome-hero-02-640.webp 640w, assets/images/domes/hero/dome-hero-02.webp 905w" sizes="(max-width: 680px) calc(100vw - 30px), (max-width: 1000px) 50vw, 600px" width="905" height="1440" decoding="async" alt="جلسة قهوة عربية داخل قبة شفافة تطل على الحديقة">
+                <img data-src="assets/images/domes/hero/dome-hero-02.webp" data-srcset="assets/images/domes/hero/dome-hero-02-640.webp 640w, assets/images/domes/hero/dome-hero-02.webp 905w" sizes="240px" width="905" height="1440" decoding="async" alt="جلسة قهوة عربية داخل قبة شفافة تطل على الحديقة">
               </div>
-              <figcaption class="dome-scene__copy">
-                <span class="dome-scene__eyebrow">من الداخل <span aria-hidden="true">/ 02</span></span>
-                <h2>تفاصيل أقرب.<br><span>ولحظات أجمل.</span></h2>
-                <p>مساحة تستوعب أسلوبك في الجلوس والضيافة، مع إطلالة تصل الداخل بالخارج.</p>
-                <a class="dome-scene__link" href="products/transparent-domes.html">اكتشف تفاصيل القبة <span aria-hidden="true">↗</span></a>
-                <span class="dome-scene__note">خيارات تناسب المساحة وطبيعة الاستخدام</span>
-              </figcaption>
             </figure>
             <figure class="dome-scene" data-hero-slide role="group" aria-roledescription="شريحة" aria-label="3 من 3: القبة في المساء" aria-hidden="true" inert>
               <div class="dome-scene__media">
-                <img data-src="assets/images/domes/hero/dome-hero-03.webp" data-srcset="assets/images/domes/hero/dome-hero-03-640.webp 640w, assets/images/domes/hero/dome-hero-03.webp 768w" sizes="(max-width: 680px) calc(100vw - 30px), (max-width: 1000px) 50vw, 600px" width="768" height="1376" decoding="async" alt="قبة شفافة مضاءة بإضاءة دافئة وسط حديقة في المساء">
+                <img data-src="assets/images/domes/hero/dome-hero-03.webp" data-srcset="assets/images/domes/hero/dome-hero-03-640.webp 640w, assets/images/domes/hero/dome-hero-03.webp 768w" sizes="240px" width="768" height="1376" decoding="async" alt="قبة شفافة مضاءة بإضاءة دافئة وسط حديقة في المساء">
               </div>
-              <figcaption class="dome-scene__copy">
-                <span class="dome-scene__eyebrow">حين يحل المساء <span aria-hidden="true">/ 03</span></span>
-                <h2>إطلالة مفتوحة.<br><span>حتى آخر المساء.</span></h2>
-                <p>الشفافية تمنح الإضاءة دورًا آخر، وتترك للمكان أجواءه الخاصة في كل وقت.</p>
-                <a class="dome-scene__link" href="products/transparent-domes.html">اكتشف تفاصيل القبة <span aria-hidden="true">↗</span></a>
-                <span class="dome-scene__note">تعرف على المقاسات والخيارات المتاحة</span>
-              </figcaption>
             </figure>
           </div>
-          <div class="dome-showcase__controls" data-hero-controls hidden>
-            <div class="dome-showcase__tabs" role="group" aria-label="اختر مشهد القبة">
-              <button class="dome-showcase__tab" type="button" data-hero-go="0" aria-pressed="true" aria-controls="dome-hero-slides"><span>01</span> الواجهة</button>
-              <button class="dome-showcase__tab" type="button" data-hero-go="1" aria-pressed="false" aria-controls="dome-hero-slides"><span>02</span> الداخل</button>
-              <button class="dome-showcase__tab" type="button" data-hero-go="2" aria-pressed="false" aria-controls="dome-hero-slides"><span>03</span> المساء</button>
-            </div>
-            <div class="dome-showcase__navigation">
-              <button class="dome-showcase__icon" type="button" data-hero-prev aria-label="المشهد السابق" aria-controls="dome-hero-slides">→</button>
-              <span class="dome-showcase__count" data-hero-count aria-hidden="true"><b>01</b> / 03</span>
-              <button class="dome-showcase__icon" type="button" data-hero-next aria-label="المشهد التالي" aria-controls="dome-hero-slides">←</button>
-              <button class="dome-showcase__play" type="button" data-hero-play aria-pressed="false" aria-label="إيقاف العرض التلقائي"><span data-hero-play-label>إيقاف مؤقت</span></button>
-            </div>
-          </div>
-          <p class="sr-only" data-hero-status role="status" aria-live="polite" aria-atomic="true"></p>
         </div>
-        <div class="dome-hero__footnote"><span>حرفة في التصنيع. عناية في التفاصيل.</span><a href="#products">استكشف منتجات الورشة <span aria-hidden="true">↓</span></a></div>
       </div>
     </section>
 
@@ -126,7 +82,7 @@
   <p>طبرجل - منطقة الجوف - المملكة العربية السعودية</p>
 </div><div><span class="footer-title">الشحن</span><p>جميع مناطق المملكة وبعض دول الخليج:</p><p>الكويت - الإمارات - البحرين - عُمان - قطر</p></div><div><span class="footer-title">التواصل</span><p>داخل المملكة: <b class="contact-number" dir="ltr">0531021644</b></p><p>خارج المملكة: <b class="contact-number" dir="ltr">+966531021644</b></p><a class="button button-whatsapp" data-quote-product="استفسار عام" target="_blank" rel="noopener"><svg class="whatsapp-icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3a13 13 0 0 0-11 19.9L3.7 29l6.3-1.7A13 13 0 1 0 16 3z"/></svg>واتساب</a></div></div><div class="container footer-bottom">© 2026 ورشة الدب القطبي للصناعة.</div><div class="container footer-whatsapp-row"><a class="floating-whatsapp" data-quote-product="استفسار عام" target="_blank" rel="noopener" aria-label="التواصل عبر واتساب"><svg class="whatsapp-icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3a13 13 0 0 0-11 19.9L3.7 29l6.3-1.7A13 13 0 1 0 16 3zm0 23.7c-2 0-3.8-.5-5.4-1.5l-.4-.2-3.7 1 1-3.6-.3-.4A10.4 10.4 0 1 1 16 26.7z"/></svg><span>واتساب</span></a></div></footer>
   <script src="assets/js/main.js?v=20261016-media1"></script>
-  <script src="assets/js/hero-slider.js?v=20261016-media1"></script>
+  <script src="assets/js/hero-slider.js?v=20261018-simple1"></script>
   <script src="assets/js/motion.js"></script>
   <script src="assets/js/interactions.js"></script>
 </body>
